@@ -3,38 +3,36 @@
 //does blobs
 
 class Blob {
-  genotype;
-  phenotype;
-  parents;
+//  genotype;
+//  phenotype;
+//  parents;
 
   constructor(blobParams){
       this.genotype = blobParams.genotype;
-      this.phenotype = generatePhenotype(this.genotype);
+      this.phenotype = this.generatePhenotype(this.genotype);
       this.parents = blobParams.parents;
   }
 
-  function generatePhenotype(genotype){
+  generatePhenotype(genotype){
     return genotype.join("");
   }
 
-
-
-   function fakeParent(allele) {
+   fakeParent(allele) {
      return new Blob ({
        genotype: [allele,randomAllele()],
        parents: []
      });
    }
 
-   function randomAllele() {
+   randomAllele() {
      return random(geneArray);
    }
 
-   function randomGenotype() {
+   randomGenotype() {
      return [randomAllele(), randomAllele()]
    }
 
-   function breedBlobs(parents) {
+   breedBlobs(parents) {
      return [random(parents[0].genotype),random(parents[1].genotype)]
    }
 }
