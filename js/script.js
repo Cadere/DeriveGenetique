@@ -22,8 +22,15 @@ function setup() {
   createCanvas(windowWidth,windowHeight)
   background("#61a08e")
   image(oujabeIcon,50,50,500,500)
+  let baby = new Blob({
+    genotype: ["a","a"],
+    parents: []
+  });
+  //let founderBlob1 = generateFounderBlob();
+  //let founderBlob2 = generateFounderBlob();
+  //let babyBlob = generateBlobFromParents([founderBlob1,founderBlob2]);
+  console.log(baby);
 }
-
 
 function draw() {
 }
