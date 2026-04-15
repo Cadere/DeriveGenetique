@@ -13,23 +13,25 @@ author, and this description to match your project!
 // Description of setup
 
 var oujabeIcon;
+let geneBank;
 
 function preload() {
   oujabeIcon = loadImage("assets/images/smallOujabeIcon.jpg")
+  geneBank = loadJSON("data/geneBank.json");
 }
 
 function setup() {
   createCanvas(windowWidth,windowHeight)
   background("#61a08e")
   image(oujabeIcon,50,50,500,500)
-  let baby = new Blob({
-    genotype: ["a","a"],
-    parents: []
-  });
-  //let founderBlob1 = generateFounderBlob();
-  //let founderBlob2 = generateFounderBlob();
-  //let babyBlob = generateBlobFromParents([founderBlob1,founderBlob2]);
-  console.log(baby);
+  // let baby = new Blob({
+  //   genotype: ["a","a"],
+  //   parents: []
+  // });
+  let founderBlob1 = Blob.generateFounderBlob();
+  let founderBlob2 = Blob.generateFounderBlob();
+  let babyBlob = Blob.generateBlobFromParents(founderBlob1,founderBlob2);
+  console.log("Baby", babyBlob);
 }
 
 function draw() {
