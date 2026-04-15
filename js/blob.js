@@ -5,7 +5,7 @@
 class Blob {
   constructor(blobParams){
       this.genotype = blobParams.genotype;
-      // this.phenotype = this.generatePhenotype(this.genotype);
+      this.phenotype = this.generatePhenotype(this.genotype);
       this.parents = blobParams.parents;
   }
 
@@ -48,10 +48,10 @@ class Blob {
     });
   }
 
+//Generates the phenotype array from the genotype Object
+//.values returns every value in geneDecoder (there's only 1 per key - the function for that allele's dominance), .map iterates and pushes the result to an array
+// decodeFunction is proxy name
   generatePhenotype(genotype){
-    return genotype.join("");
+    return Object.values(geneDecoder).map((decodeFunction) => decodeFunction(genotype))
   }
 }
-
-
-//const geneArray = ["A","a","B","b"];
